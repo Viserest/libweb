@@ -12,7 +12,8 @@ int main(int argc, char **argv) {
     Nob_Cmd cmd = {0};
     nob_cc(&cmd);
     nob_cc_flags(&cmd);
-    nob_cc_inputs(&cmd, SRC_FOLDER"router.c", SRC_FOLDER"main.c");
+    nob_cmd_append(&cmd, "-g");
+    nob_cc_inputs(&cmd, SRC_FOLDER"http_parser.c", SRC_FOLDER"main.c");
     nob_cc_output(&cmd, BUILD_FOLDER"main");
     if (!nob_cmd_run(&cmd)) return 1;
 
